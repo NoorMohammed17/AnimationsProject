@@ -44,10 +44,13 @@ export default function Challenges() {
         <AnimatePresence mode='wait'>
         {displayedChallenges.length > 0 && (
           <motion.ol 
-          className="challenge-items">
+          className="challenge-items"
+          key="list" //for animation provide different keys
+          initial={{opacity:0, y:-20}}
+          animate={{opacity:1, y:0}}
+          exit = {{opacity: 0, y:-30}}>
             <AnimatePresence
-            key="list" //for animation provide different keys
-            exit = {{opacity: 0, y:-30}}
+           
             >
             {displayedChallenges.map((challenge) => (
               <ChallengeItem
